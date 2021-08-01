@@ -1,0 +1,69 @@
+/* home style  */
+.home {
+  position: relative;
+  font-family: sans-serif;
+}
+.logo {
+  color: white;
+  background-color: red;
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+  background-color: red;
+  width: 220px;
+  height: 100px;
+  padding: 20px;
+  position: relative;
+  left: 0;
+  border-radius: 10px;
+}
+
+a:hover {
+  background-color: blue;
+  transition: 0.6s;
+  font-weight: bold;
+}
+
+/*sales style */
+.container {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.header {
+  background-color: blue;
+  color: white;
+  margin: 0;
+  padding: 20px;
+  text-transform: uppercase;
+}
+
+h1 {
+  background-color: greenyellow;
+  margin: 0;
+  padding: 20px;
+}
+
+ul {
+  background-color: grey;
+  margin: 0;
+  padding: 8px 30px;
+  color: #030a0d;
+  font-weight: bold;
+}
+
+p {
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+  background-color: red;
+  padding: 20px;
+  margin: 0;
+  text-align: center;
+}
