@@ -1,7 +1,7 @@
 'use strict';
 
 let sales = document.getElementById('sales');
-let hours =  ['','6am:00' ,'7am:00','8am:00','9am:','10am:00','11am:00','12pm:00','1pm:00','2pm:00','3pm:00','4pm:00','5pm:00','6pm:00', '7pm:00','daily total'];
+let hours =  ['6:00am' ,'7:00am','8:00am','9:00am','100:am','11:00am','12:00pm','1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm', '7:00pm'];
 
 
 function City(name , minCus,  maxCus,avg) {
@@ -12,8 +12,6 @@ function City(name , minCus,  maxCus,avg) {
   this.avg=avg;
   this.cookiesSales= [];
   this.total = 0;
-
-  
 
 }
 
@@ -64,21 +62,25 @@ for(let i=0;i < arr.length; i++){
 
 
 
-
-
-
 let table2 = document.createElement('table');
 sales.appendChild(table2);
 
-let row = document.createElement('tr');
-table2.appendChild(row);
+function createHeader(){
 
-for(let i =0 ; i < hours.length ;i++){
-  let HeadTable =document.createElement('th');
-  HeadTable .textContent = hours[i];
-  row.appendChild(HeadTable );
+  let row = document.createElement('tr');
+  table2.appendChild(row);
+
+  hours.unshift('');
+  hours.push('daily total ');
+
+
+  for(let i =0 ; i < hours.length ;i++){
+    let HeadTable =document.createElement('th');
+    HeadTable .textContent = hours[i];
+    row.appendChild(HeadTable );
+  }
+
 }
-
 
 
 
@@ -89,7 +91,7 @@ City.prototype.createTable2 =function() {
   let fitstrowDATA = document.createElement('tr');
   table2.appendChild(fitstrowDATA);
 
-  let fitstrowName = document.createElement('td');
+  let fitstrowName = document.createElement('th');
   fitstrowName.textContent = this.name;
   fitstrowDATA.appendChild(fitstrowName);
 
@@ -107,51 +109,56 @@ City.prototype.createTable2 =function() {
 
 
 
-let footer = document.createElement('tr');
-table2.appendChild(footer );
+function createfooter( ){
+  let footer = document.createElement('tr');
+  table2.appendChild(footer );
 
-let firstItemfooter = document.createElement('td');
-firstItemfooter.textContent='total';
-footer.appendChild(firstItemfooter );
-let sumCountry  = 0;
-let Arr = [];
+  let firstItemfooter = document.createElement('th');
+  firstItemfooter.textContent='total';
+  footer.appendChild(firstItemfooter );
+
+  let Arr = [];
 
 
-for(let i= 0;i< hours.length;i++){
+  for(let i= 0;i < hours.length -2;i++){
+    let footerTable = document.createElement('td');
+    let sumCountry  = 0;
+    for (let x= 0; x < arr.length ; x++){
+
+      sumCountry += arr[x].cookiesSales[i];
+
+
+    }
+
+    Arr.push(sumCountry);
+
+    footerTable.textContent = Arr[i];
+
+    footer.appendChild(footerTable );
+  }
+
+
+
+  let SumTotal = document.createElement('td');
+  let sumCountry  = 0;
 
   for (let x= 0; x < arr.length ; x++){
 
-    sumCountry += arr[x].cookiesSales[i];
-  
-    
+    sumCountry += arr[x].total;
+
+
   }
-  
-  Arr.push(sumCountry);
- 
+
+  SumTotal.textContent = sumCountry;
+  footer.appendChild(SumTotal );
 
 }
 
 
-
-
-for(let i =  0 ; i < hours.length-1 ;i++){
-  let footerTable = document.createElement('td');
-  
-  footerTable.textContent = Arr[i];
-
-  footer.appendChild(footerTable );
-
-  
-
-}
-
-
-
-
+createHeader();
 seattle.createTable2();
 tokyo.createTable2();
 dubai.createTable2();
 paris.createTable2();
 lima.createTable2();
-
-
+createfooter( );

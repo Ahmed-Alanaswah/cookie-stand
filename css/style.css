@@ -88,7 +88,7 @@ tr:first-child {
   border: 0;
 }
 
-tr:nth-child(2) {
+tr:last-child {
   background-color: chartreuse;
   border: 0;
 }
