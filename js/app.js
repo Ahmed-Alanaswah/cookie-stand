@@ -4,7 +4,7 @@ let sales = document.getElementById('sales');
 let hours =  ['6:00am' ,'7:00am','8:00am','9:00am','100:am','11:00am','12:00pm','1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm', '7:00pm'];
 
 
-function City(name , minCus,  maxCus,avg) {
+function City(name , minCus, maxCus,avg) {
 
   this.name= name;
   this.minCus= minCus;
@@ -54,9 +54,7 @@ let paris = new City('Paris' , 20 , 38 , 2.3);
 let lima = new City('Lima' ,2, 16 , 4.6);
 
 let arr= [seattle , tokyo ,paris,dubai , lima];
-for(let i=0;i < arr.length; i++){
-  arr[i].getCookies();
-}
+
 
 // console.log(arr[0].total);
 
@@ -110,6 +108,11 @@ City.prototype.createTable2 =function() {
 
 
 function createfooter( ){
+
+
+
+
+
   let footer = document.createElement('tr');
   table2.appendChild(footer );
 
@@ -122,7 +125,9 @@ function createfooter( ){
 
   for(let i= 0;i < hours.length -2;i++){
     let footerTable = document.createElement('td');
+
     let sumCountry  = 0;
+    
     for (let x= 0; x < arr.length ; x++){
 
       sumCountry += arr[x].cookiesSales[i];
@@ -135,6 +140,7 @@ function createfooter( ){
     footerTable.textContent = Arr[i];
 
     footer.appendChild(footerTable );
+    footerTable.classList.add("hide");
   }
 
 
@@ -149,16 +155,74 @@ function createfooter( ){
 
   }
 
+
+
+
   SumTotal.textContent = sumCountry;
   footer.appendChild(SumTotal );
 
 }
 
 
+
+
+
+
+
+
+
 createHeader();
-seattle.createTable2();
-tokyo.createTable2();
-dubai.createTable2();
-paris.createTable2();
-lima.createTable2();
+// seattle.createTable2();
+// tokyo.createTable2();
+// dubai.createTable2();
+// paris.createTable2();
+// lima.createTable2();
+
+
+for(let i=0;i < arr.length; i++){
+  arr[i].getCookies();
+  arr[i].createTable2();
+}
+
+// japan.createTable2();
+
+// if(addNewLocation){
+
+// }else{
+
+// }
+
+
 createfooter( );
+
+
+let formLocation= document.getElementById('formlocation');
+
+formLocation.addEventListener('submit',addNewLocation);
+
+
+function addNewLocation(event) {
+
+  event.preventDefault();
+
+  let location = event.target.location.value;
+  let max = event.target.max.value;
+  let min = event.target.min.value;
+  let avg = event.target.avg.value;
+
+
+  let newLocation = new City(location , min , max , avg);
+
+  arr.push(newLocation);
+  newLocation.getCookies();
+  newLocation.createTable2();
+  
+  table2.removeChild(table2.childNodes[arr.length]);
+ 
+  createfooter( );
+  
+
+}
+
+
+

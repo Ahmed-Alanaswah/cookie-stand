@@ -212,3 +212,10 @@ footer ul li:hover {
   background-color: #9b72aa;
   color: #053742;
 }
+
+fieldset {
+  margin-top: 20px;
+}
+form div {
+  margin-top: 20px;
+}
