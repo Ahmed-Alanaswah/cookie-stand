@@ -206,23 +206,32 @@ function addNewLocation(event) {
   event.preventDefault();
 
   let location = event.target.location.value;
-  let max = event.target.max.value;
-  let min = event.target.min.value;
+  let minmum = event.target.min.value;
+  let maximum = event.target.max.value;
   let avg = event.target.avg.value;
+  let newLocation = new City(location , minmum  ,  maximum , avg);
 
-
-  let newLocation = new City(location , min , max , avg);
+  // console.log(event)
+  // if( maximum  <  minmum   ){
+  //   console.log(maximum );
+  // }
+    
+    
 
   arr.push(newLocation);
   newLocation.getCookies();
   newLocation.createTable2();
-  
+
   table2.removeChild(table2.childNodes[arr.length]);
  
   createfooter( );
-  
 
+    
+  
+   
 }
 
 
+  
+  
 
