@@ -110,6 +110,7 @@ table {
 header {
   background-color: #cd113b;
 }
+
 nav {
   background-color: #cd113b;
   display: grid;
@@ -181,11 +182,13 @@ article {
   display: grid;
   grid-template-rows: auto auto;
 }
+
 .paragraph h2 {
   margin: 0;
   font-family: serif;
   color: #0d1655;
 }
+
 .paragraph p {
   overflow: auto;
   height: 313px;
