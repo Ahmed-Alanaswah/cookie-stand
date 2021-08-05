@@ -71,6 +71,8 @@ table {
   font-family: sans-serif;
   display: grid;
   grid-row-gap: 30px;
+  margin: auto;
+  width: 1000px;
 }
 
 .logo {
@@ -83,6 +85,16 @@ table {
   background-color: #f1ecc3;
   border-radius: 5px;
   transition: 0.5s;
+}
+.containerindex section {
+  position: relative;
+}
+.back {
+  background-color: orangered;
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  z-index: -10;
 }
 
 .containerindex h2 a:hover {
@@ -114,7 +126,11 @@ nav a {
   margin: 10px;
   text-align: center;
   transition: 0.5s;
+  font-family: "Shadows Into Light", cursive;
+  font-size: 25px;
+  border-bottom: 5px solid;
 }
+
 nav a:hover {
   background-color: #c2ffd9;
   padding: 10px;
@@ -126,6 +142,7 @@ nav a:hover {
   width: 960px;
   height: 450px;
   object-fit: cover;
+  z-index: 1000;
 }
 
 .image-cont {
@@ -137,6 +154,9 @@ nav a:hover {
 .image {
   width: 100%;
   height: 250px;
+  box-shadow: 11px 3px 20px 5px;
+  transform: rotate(17deg);
+  margin: 10px;
 }
 
 main {
@@ -161,10 +181,19 @@ article {
   display: grid;
   grid-template-rows: auto auto;
 }
-
+.paragraph h2 {
+  margin: 0;
+  font-family: serif;
+  color: #0d1655;
+}
 .paragraph p {
   overflow: auto;
+  height: 313px;
   margin: 0;
+  color: orangered;
+  font-family: "Noto Serif", serif;
+  text-align: justify;
+  padding: 0 10px;
 }
 
 .botton {
@@ -185,7 +214,7 @@ article {
 
 footer {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto auto auto;
   background-color: #cd113b;
   color: white;
   padding: 30px;
@@ -202,6 +231,8 @@ footer ul li {
 
 footer ul h2 {
   text-align: left;
+  color: #0d1655;
+  font-family: serif;
 }
 
 footer div {
@@ -211,6 +242,7 @@ footer div {
 footer ul li:hover {
   background-color: #9b72aa;
   color: #053742;
+  font-family: sans-serif;
 }
 
 fieldset {
@@ -218,4 +250,31 @@ fieldset {
 }
 form div {
   margin-top: 20px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 20px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: orange;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
+
+.waves {
+  background-color: #cd113b;
+  position: relative;
+  bottom: -20px;
 }
