@@ -20,7 +20,7 @@ City.prototype.getCookies = function(){
 
   for(let i= 0 ; i< hours.length ; i++){
 
-    let randAVGCus = Math.floor(randomNUmber(this.minCus,this.maxCus)*this.avg);
+    let randAVGCus = Math.floor(randomNUmber(this.maxCus,this.minCus)*this.avg);
 
     this.cookiesSales.push(randAVGCus );
 
@@ -33,13 +33,16 @@ City.prototype.getCookies = function(){
 };
 
 
-function randomNUmber(min,max){
-  min = Math.ceil(min);
-  max = Math.floor(max);
+function randomNUmber(max,min){
+  // min = Math.ceil(min);
+  // max = Math.floor(max);
 
   return Math.floor(Math.random()*(max-min+1)+min);
 
+  
 }
+
+
 
 
 let seattle = new City('Seattle' , 23 , 65 , 6.3);
@@ -172,11 +175,7 @@ function createfooter( ){
 
 
 createHeader();
-// seattle.createTable2();
-// tokyo.createTable2();
-// dubai.createTable2();
-// paris.createTable2();
-// lima.createTable2();
+
 
 
 for(let i=0;i < arr.length; i++){
@@ -184,13 +183,6 @@ for(let i=0;i < arr.length; i++){
   arr[i].createTable2();
 }
 
-// japan.createTable2();
-
-// if(addNewLocation){
-
-// }else{
-
-// }
 
 
 createfooter( );
@@ -206,25 +198,34 @@ function addNewLocation(event) {
   event.preventDefault();
 
   let location = event.target.location.value;
-  let minmum = event.target.min.value;
-  let maximum = event.target.max.value;
-  let avg = event.target.avg.value;
+  let minmum = parseInt(event.target.min.value);
+  let maximum = parseInt(event.target.max.value);
+  let avg = parseInt(event.target.avg.value);
   let newLocation = new City(location , minmum  ,  maximum , avg);
 
-  // console.log(event)
-  // if( maximum  <  minmum   ){
-  //   console.log(maximum );
-  // }
-    
+  if(maximum > minmum  && avg > minmum && avg < maximum && location.match(/[a-z]/gi)){
+   
+    arr.push(newLocation);
+    newLocation.getCookies();
+    newLocation.createTable2();
+  
+    table2.removeChild(table2.childNodes[arr.length]);
+   
+    createfooter( );
+
+  }else{
+    alert('please check your input max > min and avg  between them and true location');
+  }
+
+
+
+  
+
+  
+
     
 
-  arr.push(newLocation);
-  newLocation.getCookies();
-  newLocation.createTable2();
-
-  table2.removeChild(table2.childNodes[arr.length]);
  
-  createfooter( );
 
     
   
