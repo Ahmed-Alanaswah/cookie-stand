@@ -218,17 +218,6 @@ function addNewLocation(event) {
   }
 
 
-
-  
-
-  
-
-    
-
- 
-
-    
-  
    
 }
 
